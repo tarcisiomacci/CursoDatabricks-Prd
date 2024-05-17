@@ -1,0 +1,9 @@
+{
+	"name": "adb-curso-databricks-prd",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "0a3b0e80-1367-44cc-8d3f-ee9f1eacfaea",
+		"tenantId": "0baf92b6-ce51-4ca2-9107-f5e70a50120a"
+	}
+}
