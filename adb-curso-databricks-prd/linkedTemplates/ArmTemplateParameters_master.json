@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adb-curso-databricks-prd"
+		},
+		"LS_CursoDatabricks_ADLS_accountKey": {
+			"value": ""
+		},
+		"LS_CursoDatabricks_ADLS_properties_typeProperties_url": {
+			"value": "https://adlcursodatabricksprd.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
