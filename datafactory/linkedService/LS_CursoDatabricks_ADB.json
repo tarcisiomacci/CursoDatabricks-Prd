@@ -1,0 +1,20 @@
+{
+	"name": "LS_CursoDatabricks_ADB",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-607816115043009.9.azuredatabricks.net",
+			"authentication": "MSI",
+			"workspaceResourceId": "/subscriptions/919aa7dc-01b5-41df-a1e5-a210158aa0a4/resourceGroups/CursoDatabricks/providers/Microsoft.Databricks/workspaces/adb-curso-databricks-prd",
+			"newClusterNodeType": "Standard_DS3_v2",
+			"newClusterNumOfWorker": "1",
+			"newClusterSparkEnvVars": {
+				"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+			},
+			"newClusterVersion": "10.4.x-scala2.12",
+			"clusterOption": "Fixed",
+			"newClusterInitScripts": []
+		}
+	}
+}
