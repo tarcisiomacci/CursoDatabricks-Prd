@@ -1,0 +1,39 @@
+{
+	"name": "human_resources_department",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_CursoDatabricks_SQL_teste",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "AdventureWorks_OLTP/Input"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "DepartmentID",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "GroupName",
+				"type": "nvarchar"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "HumanResources",
+			"table": "Department"
+		}
+	}
+}

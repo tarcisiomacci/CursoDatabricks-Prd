@@ -1,0 +1,21 @@
+{
+	"name": "output_human_resouce_department",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_CursoDatabricks_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "human_resouce_department.parquet",
+				"folderPath": "AdventureWorks/full_load",
+				"fileSystem": "landing-zone"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
