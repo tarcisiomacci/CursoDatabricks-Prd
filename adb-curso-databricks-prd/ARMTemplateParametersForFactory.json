@@ -8,8 +8,20 @@
 		"LS_CursoDatabricks_ADLS_accountKey": {
 			"value": ""
 		},
+		"LS_CursoDatabricks_SQL_teste_password": {
+			"value": ""
+		},
 		"LS_CursoDatabricks_ADLS_properties_typeProperties_url": {
 			"value": "https://adlcursodatabricksprd.dfs.core.windows.net/"
+		},
+		"LS_CursoDatabricks_SQL_teste_properties_typeProperties_server": {
+			"value": "sqldb-study-lakehouse-server.database.windows.net"
+		},
+		"LS_CursoDatabricks_SQL_teste_properties_typeProperties_database": {
+			"value": "AdventureWorks2022"
+		},
+		"LS_CursoDatabricks_SQL_teste_properties_typeProperties_userName": {
+			"value": "APRENDER_DADOS_READ"
 		}
 	}
 }
