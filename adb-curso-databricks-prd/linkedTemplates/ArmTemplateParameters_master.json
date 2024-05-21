@@ -5,11 +5,23 @@
 		"factoryName": {
 			"value": "adb-curso-databricks-prd"
 		},
+		"LS_AzureSQL_Controls_password": {
+			"value": ""
+		},
 		"LS_CursoDatabricks_ADLS_accountKey": {
 			"value": ""
 		},
 		"LS_CursoDatabricks_SQL_teste_password": {
 			"value": ""
+		},
+		"LS_AzureSQL_Controls_properties_typeProperties_server": {
+			"value": "sqldb-study-lakehouse-server.database.windows.net"
+		},
+		"LS_AzureSQL_Controls_properties_typeProperties_database": {
+			"value": "AdventureWorksLT2022"
+		},
+		"LS_AzureSQL_Controls_properties_typeProperties_userName": {
+			"value": "APRENDER_DADOS_READ"
 		},
 		"LS_CursoDatabricks_ADLS_properties_typeProperties_url": {
 			"value": "https://adlcursodatabricksprd.dfs.core.windows.net/"

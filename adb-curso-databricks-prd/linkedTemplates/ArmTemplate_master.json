@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adb-curso-databricks-prd"
 		},
+		"LS_AzureSQL_Controls_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_AzureSQL_Controls'"
+		},
 		"LS_CursoDatabricks_ADLS_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_CursoDatabricks_ADLS'"
@@ -14,6 +18,18 @@
 		"LS_CursoDatabricks_SQL_teste_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_CursoDatabricks_SQL_teste'"
+		},
+		"LS_AzureSQL_Controls_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "sqldb-study-lakehouse-server.database.windows.net"
+		},
+		"LS_AzureSQL_Controls_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorksLT2022"
+		},
+		"LS_AzureSQL_Controls_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "APRENDER_DADOS_READ"
 		},
 		"LS_CursoDatabricks_ADLS_properties_typeProperties_url": {
 			"type": "string",
@@ -58,11 +74,23 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"LS_AzureSQL_Controls_password": {
+						"value": "[parameters('LS_AzureSQL_Controls_password')]"
+					},
 					"LS_CursoDatabricks_ADLS_accountKey": {
 						"value": "[parameters('LS_CursoDatabricks_ADLS_accountKey')]"
 					},
 					"LS_CursoDatabricks_SQL_teste_password": {
 						"value": "[parameters('LS_CursoDatabricks_SQL_teste_password')]"
+					},
+					"LS_AzureSQL_Controls_properties_typeProperties_server": {
+						"value": "[parameters('LS_AzureSQL_Controls_properties_typeProperties_server')]"
+					},
+					"LS_AzureSQL_Controls_properties_typeProperties_database": {
+						"value": "[parameters('LS_AzureSQL_Controls_properties_typeProperties_database')]"
+					},
+					"LS_AzureSQL_Controls_properties_typeProperties_userName": {
+						"value": "[parameters('LS_AzureSQL_Controls_properties_typeProperties_userName')]"
 					},
 					"LS_CursoDatabricks_ADLS_properties_typeProperties_url": {
 						"value": "[parameters('LS_CursoDatabricks_ADLS_properties_typeProperties_url')]"
@@ -79,6 +107,26 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "adb-curso-databricks-prd_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adb-curso-databricks-prd_ArmTemplate_0')]"
+			]
 		}
 	]
 }
