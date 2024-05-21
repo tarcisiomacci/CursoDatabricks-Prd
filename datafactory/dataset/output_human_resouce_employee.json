@@ -1,5 +1,5 @@
 {
-	"name": "output_human_resouce_department",
+	"name": "output_human_resouce_employee",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LS_CursoDatabricks_ADLS",
@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "human_resouce_department.parquet",
+				"fileName": "human_resouce_employee.parquet",
 				"folderPath": "AdventureWorks/full_load",
 				"fileSystem": "landing-zone"
 			},

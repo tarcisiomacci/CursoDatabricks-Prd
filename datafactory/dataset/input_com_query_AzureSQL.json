@@ -1,0 +1,15 @@
+{
+	"name": "input_com_query_AzureSQL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_CursoDatabricks_SQL_teste",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "AdventureWorks_OLTP/Aula 3"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}

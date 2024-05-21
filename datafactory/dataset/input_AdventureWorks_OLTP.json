@@ -1,0 +1,33 @@
+{
+	"name": "input_AdventureWorks_OLTP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_CursoDatabricks_SQL_teste",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schema": {
+				"type": "string"
+			},
+			"table": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "AdventureWorks_OLTP/Input"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().table",
+				"type": "Expression"
+			}
+		}
+	}
+}

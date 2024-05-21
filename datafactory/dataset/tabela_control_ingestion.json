@@ -1,0 +1,49 @@
+{
+	"name": "tabela_control_ingestion",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_AzureSQL_Controls",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "AdventureWorks_OLTP/aula 4"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "active",
+				"type": "bit"
+			},
+			{
+				"name": "source_schema",
+				"type": "nvarchar"
+			},
+			{
+				"name": "source_table",
+				"type": "nvarchar"
+			},
+			{
+				"name": "query",
+				"type": "nvarchar"
+			},
+			{
+				"name": "folder",
+				"type": "nvarchar"
+			},
+			{
+				"name": "file_name",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "control_ingestion"
+		}
+	}
+}

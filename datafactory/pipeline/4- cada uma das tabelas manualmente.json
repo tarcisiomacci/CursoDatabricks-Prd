@@ -1,0 +1,31 @@
+{
+	"name": "4- cada uma das tabelas manualmente",
+	"properties": {
+		"activities": [
+			{
+				"name": "HumanResources_Shift",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "3- copy save cada table pipeline parameters",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"schema_pipeline": "HumanResources",
+						"table_pipeline": "Shift"
+					}
+				}
+			}
+		],
+		"folder": {
+			"name": "Aula 2 - Ingestão Manual"
+		},
+		"annotations": []
+	}
+}

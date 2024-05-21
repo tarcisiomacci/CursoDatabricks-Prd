@@ -1,0 +1,89 @@
+{
+	"name": "3- copy save cada table pipeline parameters",
+	"properties": {
+		"activities": [
+			{
+				"name": "extracao",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "input_AdventureWorks_OLTP",
+						"type": "DatasetReference",
+						"parameters": {
+							"schema": {
+								"value": "@pipeline().parameters.schema_pipeline",
+								"type": "Expression"
+							},
+							"table": {
+								"value": "@pipeline().parameters.table_pipeline",
+								"type": "Expression"
+							}
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "output_AdventureWorks_OLTP",
+						"type": "DatasetReference",
+						"parameters": {
+							"schema": {
+								"value": "@pipeline().parameters.schema_pipeline",
+								"type": "Expression"
+							},
+							"table": {
+								"value": "@pipeline().parameters.table_pipeline",
+								"type": "Expression"
+							}
+						}
+					}
+				]
+			}
+		],
+		"parameters": {
+			"schema_pipeline": {
+				"type": "string"
+			},
+			"table_pipeline": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "Aula 2 - Ingestão Manual"
+		},
+		"annotations": []
+	}
+}

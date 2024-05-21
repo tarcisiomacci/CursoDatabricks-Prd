@@ -1,0 +1,52 @@
+{
+	"name": "output_AdventureWorks_OLTP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_CursoDatabricks_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schema": {
+				"type": "string"
+			},
+			"table": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "AdventureWorks_OLTP/Output"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@concat(dataset().schema,'_',dataset().table,'.parquet')",
+					"type": "Expression"
+				},
+				"folderPath": "AdventureWorks/full_load",
+				"fileSystem": "landing-zone"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "DepartmentID",
+				"type": "INT32"
+			},
+			{
+				"name": "Name",
+				"type": "UTF8"
+			},
+			{
+				"name": "GroupName",
+				"type": "UTF8"
+			},
+			{
+				"name": "ModifiedDate",
+				"type": "INT96"
+			}
+		]
+	}
+}

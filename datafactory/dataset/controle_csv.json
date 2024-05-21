@@ -1,0 +1,32 @@
+{
+	"name": "controle_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_CursoDatabricks_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "AdventureWorks_OLTP/Aula 3"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "controle.csv",
+				"folderPath": "AdventureWorks",
+				"fileSystem": "controle"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Id;Active;source_schema;source_table;query;folder;file_name",
+				"type": "String"
+			}
+		]
+	}
+}
