@@ -14,6 +14,9 @@
 		"LS_CursoDatabricks_SQL_teste_password": {
 			"value": ""
 		},
+		"LS_MongoDbAtlas_teste_connectionString": {
+			"value": ""
+		},
 		"LS_AzureSQL_Controls_properties_typeProperties_server": {
 			"value": "sqldb-study-lakehouse-server.database.windows.net"
 		},
@@ -34,6 +37,9 @@
 		},
 		"LS_CursoDatabricks_SQL_teste_properties_typeProperties_userName": {
 			"value": "APRENDER_DADOS_READ"
+		},
+		"LS_MongoDbAtlas_teste_properties_typeProperties_database": {
+			"value": "teste-AdventureWorks"
 		},
 		"containerUri": {
 			"value": ""

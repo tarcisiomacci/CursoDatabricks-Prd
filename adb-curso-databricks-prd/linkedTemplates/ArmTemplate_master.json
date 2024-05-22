@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_CursoDatabricks_SQL_teste'"
 		},
+		"LS_MongoDbAtlas_teste_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_MongoDbAtlas_teste'"
+		},
 		"LS_AzureSQL_Controls_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "sqldb-study-lakehouse-server.database.windows.net"
@@ -46,6 +50,10 @@
 		"LS_CursoDatabricks_SQL_teste_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "APRENDER_DADOS_READ"
+		},
+		"LS_MongoDbAtlas_teste_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "teste-AdventureWorks"
 		},
 		"containerUri": {
 			"type": "string",
@@ -83,6 +91,9 @@
 					"LS_CursoDatabricks_SQL_teste_password": {
 						"value": "[parameters('LS_CursoDatabricks_SQL_teste_password')]"
 					},
+					"LS_MongoDbAtlas_teste_connectionString": {
+						"value": "[parameters('LS_MongoDbAtlas_teste_connectionString')]"
+					},
 					"LS_AzureSQL_Controls_properties_typeProperties_server": {
 						"value": "[parameters('LS_AzureSQL_Controls_properties_typeProperties_server')]"
 					},
@@ -103,6 +114,9 @@
 					},
 					"LS_CursoDatabricks_SQL_teste_properties_typeProperties_userName": {
 						"value": "[parameters('LS_CursoDatabricks_SQL_teste_properties_typeProperties_userName')]"
+					},
+					"LS_MongoDbAtlas_teste_properties_typeProperties_database": {
+						"value": "[parameters('LS_MongoDbAtlas_teste_properties_typeProperties_database')]"
 					}
 				}
 			},

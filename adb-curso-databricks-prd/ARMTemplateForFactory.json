@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_CursoDatabricks_SQL_teste'"
 		},
+		"LS_MongoDbAtlas_teste_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_MongoDbAtlas_teste'"
+		},
 		"LS_AzureSQL_Controls_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "sqldb-study-lakehouse-server.database.windows.net"
@@ -46,6 +50,10 @@
 		"LS_CursoDatabricks_SQL_teste_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "APRENDER_DADOS_READ"
+		},
+		"LS_MongoDbAtlas_teste_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "teste-AdventureWorks"
 		}
 	},
 	"variables": {
@@ -742,6 +750,784 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/Mongo Data')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy data1",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "MongoDbAtlasSource",
+								"batchSize": 100
+							},
+							"sink": {
+								"type": "ParquetSink",
+								"storeSettings": {
+									"type": "AzureBlobFSWriteSettings"
+								},
+								"formatSettings": {
+									"type": "ParquetWriteSettings"
+								}
+							},
+							"enableStaging": false,
+							"translator": {
+								"type": "TabularTranslator",
+								"mappings": [
+									{
+										"source": {
+											"path": "$['_id']"
+										},
+										"sink": {
+											"name": "_id"
+										}
+									},
+									{
+										"source": {
+											"path": "$['_t'][0]"
+										},
+										"sink": {
+											"name": "_t']["
+										}
+									},
+									{
+										"source": {
+											"path": "$['DataPersistenciaRegistro']"
+										},
+										"sink": {
+											"name": "DataPersistenciaRegistro"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DataPersistenciaRegistroServidor']"
+										},
+										"sink": {
+											"name": "DataPersistenciaRegistroServidor"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioSistema']['_t'][0]"
+										},
+										"sink": {
+											"name": "UsuarioSistema__t']["
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioSistema']['_id']"
+										},
+										"sink": {
+											"name": "UsuarioSistema__id"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioSistema']['DataPersistenciaRegistro']"
+										},
+										"sink": {
+											"name": "UsuarioSistema_DataPersistenciaRegistro"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioSistema']['DataPersistenciaRegistroServidor']"
+										},
+										"sink": {
+											"name": "UsuarioSistema_DataPersistenciaRegistroServidor",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioSistema']['Nome']"
+										},
+										"sink": {
+											"name": "UsuarioSistema_Nome"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioSistema']['Login']"
+										},
+										"sink": {
+											"name": "UsuarioSistema_Login"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['_t'][0]"
+										},
+										"sink": {
+											"name": "Estabelecimento__t']["
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['_id']"
+										},
+										"sink": {
+											"name": "Estabelecimento__id"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['DataPersistenciaRegistro']"
+										},
+										"sink": {
+											"name": "Estabelecimento_DataPersistenciaRegistro"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['DataPersistenciaRegistroServidor']"
+										},
+										"sink": {
+											"name": "Estabelecimento_DataPersistenciaRegistroServidor",
+											"type": "DateTime"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Codigo']['$numberInt']"
+										},
+										"sink": {
+											"name": "Estabelecimento_Codigo_$numberInt"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Nome']"
+										},
+										"sink": {
+											"name": "Estabelecimento_Nome"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Endereco']['CEP']"
+										},
+										"sink": {
+											"name": "CEP",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Endereco']['CEPStr']"
+										},
+										"sink": {
+											"name": "CEPStr",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Endereco']['Logradouro']"
+										},
+										"sink": {
+											"name": "Logradouro",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Endereco']['Numero']"
+										},
+										"sink": {
+											"name": "Numero"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Endereco']['Complemento']"
+										},
+										"sink": {
+											"name": "Complemento",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Endereco']['Bairro']"
+										},
+										"sink": {
+											"name": "Bairro"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Endereco']['Cidade']"
+										},
+										"sink": {
+											"name": "Cidade"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Endereco']['UF']"
+										},
+										"sink": {
+											"name": "UF"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Endereco']['Regional']"
+										},
+										"sink": {
+											"name": "Regional",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Endereco']['Zona']"
+										},
+										"sink": {
+											"name": "Zona",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Endereco']['Latitude']"
+										},
+										"sink": {
+											"name": "Latitude"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Estabelecimento']['Endereco']['Longitude']"
+										},
+										"sink": {
+											"name": "Longitude"
+										}
+									},
+									{
+										"source": {
+											"path": "$['Data']"
+										},
+										"sink": {
+											"name": "Data"
+										}
+									},
+									{
+										"source": {
+											"path": "$['IdRoteirosPlanejados'][0]"
+										},
+										"sink": {
+											"name": "IdRoteirosPlanejados']["
+										}
+									},
+									{
+										"source": {
+											"path": "$['Status']['$numberInt']"
+										},
+										"sink": {
+											"name": "Status_$numberInt"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Tipo']['$numberInt']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Tipo_$numberInt",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['_t'][0]"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia__t'][",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['_id']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia__id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['DataPersistenciaRegistro']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_DataPersistenciaRegistro",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['DataPersistenciaRegistroServidor']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_DataPersistenciaRegistroServidor",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['Codigo']['$numberInt']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_Codigo_$numberInt",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['Nome']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_Nome",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['Marca']['_t'][0]"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_Marca__t'][",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['Marca']['_id']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_Marca__id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['Marca']['DataPersistenciaRegistro']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_Marca_DataPersistenciaRegistro",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['Marca']['DataPersistenciaRegistroServidor']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_Marca_DataPersistenciaRegistroServidor",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['Marca']['Codigo']['$numberInt']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_Marca_Codigo_$numberInt",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['Marca']['Nome']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_Marca_Nome",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['Segmento']['_t'][0]"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_Segmento__t'][",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['Segmento']['_id']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_Segmento__id",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['Segmento']['DataPersistenciaRegistro']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_Segmento_DataPersistenciaRegistro",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['Segmento']['DataPersistenciaRegistroServidor']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_Segmento_DataPersistenciaRegistroServidor",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['TarefasExecutadas'][0]['Alvo']['Familia']['Segmento']['Nome']"
+										},
+										"sink": {
+											"name": "TarefasExecutadas'][0]['Alvo_Familia_Segmento_Nome",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckin']['Nome']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckin_Nome"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckin']['MimeType']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckin_MimeType",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckin']['CaminhoArmazenamento']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckin_CaminhoArmazenamento",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckin']['Comentario']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckin_Comentario",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckin']['Data']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckin_Data"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckin']['Classificacao']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckin_Classificacao"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckin']['Latitude']['$numberDouble']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckin_Latitude_$numberDouble"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckin']['Longitude']['$numberDouble']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckin_Longitude_$numberDouble"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckout']['Nome']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckout_Nome"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckout']['MimeType']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckout_MimeType",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckout']['CaminhoArmazenamento']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckout_CaminhoArmazenamento",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckout']['Comentario']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckout_Comentario",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckout']['Data']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckout_Data"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckout']['Classificacao']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckout_Classificacao"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckout']['Latitude']['$numberDouble']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckout_Latitude_$numberDouble"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DadosVisita']['FotoCheckout']['Longitude']['$numberDouble']"
+										},
+										"sink": {
+											"name": "DadosVisita_FotoCheckout_Longitude_$numberDouble"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioInclusaoRegistro']['_id']"
+										},
+										"sink": {
+											"name": "UsuarioInclusaoRegistro__id"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioInclusaoRegistro']['DataPersistenciaRegistro']"
+										},
+										"sink": {
+											"name": "UsuarioInclusaoRegistro_DataPersistenciaRegistro"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioInclusaoRegistro']['DataPersistenciaRegistroServidor']"
+										},
+										"sink": {
+											"name": "UsuarioInclusaoRegistro_DataPersistenciaRegistroServidor",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioInclusaoRegistro']['Nome']"
+										},
+										"sink": {
+											"name": "UsuarioInclusaoRegistro_Nome"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioInclusaoRegistro']['Login']"
+										},
+										"sink": {
+											"name": "UsuarioInclusaoRegistro_Login"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DataInclusaoRegistro']"
+										},
+										"sink": {
+											"name": "DataInclusaoRegistro"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioUltimaAlteracaoRegistro']['_id']"
+										},
+										"sink": {
+											"name": "UsuarioUltimaAlteracaoRegistro__id"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioUltimaAlteracaoRegistro']['DataPersistenciaRegistro']"
+										},
+										"sink": {
+											"name": "UsuarioUltimaAlteracaoRegistro_DataPersistenciaRegistro"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioUltimaAlteracaoRegistro']['DataPersistenciaRegistroServidor']"
+										},
+										"sink": {
+											"name": "UsuarioUltimaAlteracaoRegistro_DataPersistenciaRegistroServidor",
+											"type": "String"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioUltimaAlteracaoRegistro']['Nome']"
+										},
+										"sink": {
+											"name": "UsuarioUltimaAlteracaoRegistro_Nome"
+										}
+									},
+									{
+										"source": {
+											"path": "$['UsuarioUltimaAlteracaoRegistro']['Login']"
+										},
+										"sink": {
+											"name": "UsuarioUltimaAlteracaoRegistro_Login"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DataUltimaAlteracaoRegistro']"
+										},
+										"sink": {
+											"name": "DataUltimaAlteracaoRegistro"
+										}
+									},
+									{
+										"source": {
+											"path": "$['RegistroExcluido']"
+										},
+										"sink": {
+											"name": "RegistroExcluido"
+										}
+									},
+									{
+										"source": {
+											"path": "$['DataAsDate']['$date']['$numberLong']"
+										},
+										"sink": {
+											"name": "DataAsDate_$date_$numberLong"
+										}
+									},
+									{
+										"source": {
+											"path": "$['currentMillis']['$numberLong']"
+										},
+										"sink": {
+											"name": "currentMillis_$numberLong"
+										}
+									},
+									{
+										"source": {
+											"path": "$['newDateRegistro']['$numberLong']"
+										},
+										"sink": {
+											"name": "newDateRegistro_$numberLong"
+										}
+									},
+									{
+										"source": {
+											"path": "$['yesterdayMillis']['$numberLong']"
+										},
+										"sink": {
+											"name": "yesterdayMillis_$numberLong"
+										}
+									},
+									{
+										"source": {
+											"path": "$['dataOntem']['$date']['$numberLong']"
+										},
+										"sink": {
+											"name": "dataOntem_$date_$numberLong"
+										}
+									},
+									{
+										"source": {
+											"path": "$['novaDataMillis']['$numberLong']"
+										},
+										"sink": {
+											"name": "novaDataMillis_$numberLong"
+										}
+									}
+								],
+								"mapComplexValuesToString": false
+							}
+						},
+						"inputs": [
+							{
+								"referenceName": "MongoDbAtlasCollection_teste",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "output_com_folder_e_filename",
+								"type": "DatasetReference",
+								"parameters": {
+									"folder": "testeMongo",
+									"file_name": "testeFileName.parquet"
+								}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"folder": {
+					"name": "Aula 2 - Ingestão Manual"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/MongoDbAtlasCollection_teste')]",
+				"[concat(variables('factoryId'), '/datasets/output_com_folder_e_filename')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Pipeline de Ingestao')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -1254,6 +2040,26 @@
 				"[concat(variables('factoryId'), '/datasets/tabela_control_ingestion')]",
 				"[concat(variables('factoryId'), '/datasets/input_com_query_AzureSQL')]",
 				"[concat(variables('factoryId'), '/datasets/output_com_folder_e_filename')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/MongoDbAtlasCollection_teste')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_MongoDbAtlas_teste",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "MongoDbAtlasCollection",
+				"schema": [],
+				"typeProperties": {
+					"collection": "RoteiroExecutadoEntity"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_MongoDbAtlas_teste')]"
 			]
 		},
 		{
@@ -1783,6 +2589,21 @@
 						"type": "SecureString",
 						"value": "[parameters('LS_CursoDatabricks_SQL_teste_password')]"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_MongoDbAtlas_teste')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "MongoDbAtlas",
+				"typeProperties": {
+					"connectionString": "[parameters('LS_MongoDbAtlas_teste_connectionString')]",
+					"database": "[parameters('LS_MongoDbAtlas_teste_properties_typeProperties_database')]",
+					"driverVersion": "v2"
 				}
 			},
 			"dependsOn": []
