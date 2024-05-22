@@ -1,0 +1,15 @@
+{
+	"name": "MongoDbAtlasCollection_teste",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_MongoDbAtlas_teste",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "MongoDbAtlasCollection",
+		"schema": [],
+		"typeProperties": {
+			"collection": "RoteiroExecutadoEntity"
+		}
+	}
+}
